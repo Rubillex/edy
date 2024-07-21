@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct Login: View {
+    @StateObject var loginViewModel = LoginViewModel()
+    
     @State private var phoneNumber: String = ""
-    @State private var isPressed = false
     
     var body: some View {
         ZStack {
@@ -71,7 +72,7 @@ struct Login: View {
                         .keyboardType(.phonePad)
                         
                         Button(action: {
-                            isPressed = true
+                            loginViewModel.sendMessage(phoneNumber: phoneNumber)
                         }) {
                             Text("Отправить код")
                                 .font(.system(size: 16))
