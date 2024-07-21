@@ -8,9 +8,8 @@
 import Foundation
 
 enum Route: Hashable {
-    case startPage
     case login
     case verify(phone: String)
-    case register
-    case categories
+//    case register
+//    case categories
 }

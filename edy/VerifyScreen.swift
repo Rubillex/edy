@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct VerifyScreen: View {
+    @State var phoneNumber = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("\(phoneNumber)")
+            Text("\(UserDefaultsWorker.shared.getAccessToken().token)")
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

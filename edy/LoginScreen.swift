@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Login: View {
-    @StateObject var loginViewModel = LoginViewModel()
+struct LoginScreen: View {
+    @ObservedObject var loginViewModel: LoginViewModel
     
     @State private var phoneNumber: String = ""
     
@@ -116,5 +116,5 @@ struct WhiteButtonStyle: ButtonStyle {
 
 
 #Preview {
-    Login()
+    LoginScreen(loginViewModel: LoginViewModel(router: Router.shared))
 }

@@ -12,6 +12,12 @@ class StartPageViewModel: ObservableObject {
     
     init(router: Router) {
         self.router = router
+        
+        print("Токен есть? \(UserDefaultsWorker.shared.haveAuthTokens())")
+        
+        if UserDefaultsWorker.shared.haveAuthTokens() {
+            self.router.showVerifyScreen(phone: UserDefaultsWorker.shared.getUserData().phone)
+        }
     }
     
     func showLoginScreen() {
